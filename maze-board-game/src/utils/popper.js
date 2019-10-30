@@ -5,10 +5,14 @@ const popper = (message, status, handler) => {
         text: message,
         type: status,
         confirmButtonColor: '#4c4c4c',
-        onClose: () => {
-            handler();
-        },
-    });
-}
+        confirmButtonText: 'Restart',
+        showCancelButton: true,
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        if (result.value) {
+          handler();
+        }
+      })
+};
 
 export default popper;
